@@ -29,6 +29,7 @@ public class TagRate {
 	@Column(name = "content")
 	private String content;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "tag-id")
 	private Tag tag;

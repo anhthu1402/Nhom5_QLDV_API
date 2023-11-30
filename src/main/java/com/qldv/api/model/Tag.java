@@ -24,7 +24,6 @@ public class Tag {
 	@Column(name = "name")
 	private String name;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "tag")
 	private List<TagRate> listTagRate = new ArrayList<TagRate>();
 	
