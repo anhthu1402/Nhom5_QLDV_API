@@ -3,8 +3,6 @@ package com.qldv.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class Tag {
 	private String name;
 	
 	@OneToMany(mappedBy = "tag")
-	private List<TagRate> listTagRate = new ArrayList<TagRate>();
+	private List<TagRate> details = new ArrayList<TagRate>();
 	
 	public Tag() {
 		// TODO Auto-generated constructor stub
@@ -47,11 +45,11 @@ public class Tag {
 		this.name = name;
 	}
 
-	public List<TagRate> getListTagRate() {
-		return listTagRate;
+	public List<TagRate> getDetails() {
+		return details;
 	}
 
-	public void setListTagRate(List<TagRate> listTagRate) {
-		this.listTagRate = listTagRate;
+	public void setDetails(List<TagRate> details) {
+		this.details = details;
 	}
 }
