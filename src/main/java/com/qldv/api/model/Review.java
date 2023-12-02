@@ -36,7 +36,7 @@ public class Review {
 	private User user;
 	
 	@OneToMany(mappedBy = "review")
-	private List<TagRate> listTagRate = new ArrayList<TagRate>();
+	private List<ReviewTag> details = new ArrayList<ReviewTag>();
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
@@ -82,11 +82,11 @@ public class Review {
 		this.user = user;
 	}
 
-	public List<TagRate> getListTagRate() {
-		return listTagRate;
+	public List<ReviewTag> getDetails() {
+		return details;
 	}
 
-	public void setListTagRate(List<TagRate> listTagRate) {
-		this.listTagRate = listTagRate;
+	public void setDetails(List<ReviewTag> details) {
+		this.details = details;
 	}
 }
