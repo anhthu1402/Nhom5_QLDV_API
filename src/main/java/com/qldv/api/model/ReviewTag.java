@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "review-tag")
 public class ReviewTag {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,8 @@ public class ReviewTag {
 	private Review review;
 	
 	@ManyToOne
-	@JoinColumn(name = "review-tag-id")
-	private TagRate reviewTagRate;
+	@JoinColumn(name = "tag-rate-id")
+	private TagRate tagRate;
 	
 	public ReviewTag() {
 		// TODO Auto-generated constructor stub
@@ -48,11 +48,11 @@ public class ReviewTag {
 		this.review = review;
 	}
 
-	public TagRate getReviewTagRate() {
-		return reviewTagRate;
+	public TagRate getTagRate() {
+		return tagRate;
 	}
 
-	public void setReviewTagRate(TagRate reviewTagRate) {
-		this.reviewTagRate = reviewTagRate;
+	public void setTagRate(TagRate tagRate) {
+		this.tagRate = tagRate;
 	}
 }

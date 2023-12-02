@@ -29,13 +29,12 @@ public class TagRate {
 	@Column(name = "content")
 	private String content;
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "tag-id")
 	private Tag tag;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "reviewTagRate")
+	@OneToMany(mappedBy = "tagRate")
 	private List<ReviewTag> reviewTagRate = new ArrayList<ReviewTag>();
 	
 	public TagRate() {

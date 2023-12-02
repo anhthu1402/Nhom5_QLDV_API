@@ -36,6 +36,7 @@ public class User {
 	@Column(name = "phone")
 	private String phone;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "role_id")
 	private Role role;

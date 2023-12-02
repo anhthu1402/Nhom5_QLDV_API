@@ -32,7 +32,7 @@ public class Review {
 	private Date dateReview;
 	
 	@ManyToOne
-	@JoinColumn(name = "user-id")
+	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@OneToMany(mappedBy = "review")
@@ -88,5 +88,13 @@ public class Review {
 
 	public void setDetails(List<ReviewTag> details) {
 		this.details = details;
+	}
+	
+	public void addReviewDetail(ReviewTag reviewTag) {
+		details.add(reviewTag);
+	}
+	
+	public void removeReviewDetail(ReviewTag reviewTag) {
+		details.remove(reviewTag);
 	}
 }

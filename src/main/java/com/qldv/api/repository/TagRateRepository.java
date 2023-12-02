@@ -1,5 +1,9 @@
 package com.qldv.api.repository;
 
-public interface TagRateRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.qldv.api.model.TagRate;
+
+public interface TagRateRepository extends JpaRepository<TagRate, Integer>{
 
 }

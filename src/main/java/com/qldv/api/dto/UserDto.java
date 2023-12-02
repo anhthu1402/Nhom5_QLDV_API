@@ -1,5 +1,6 @@
 package com.qldv.api.dto;
 
+import com.qldv.api.model.Role;
 import com.qldv.api.model.User;
 
 public class UserDto {
@@ -7,6 +8,7 @@ public class UserDto {
 	private String name;
 	private String email;
 	private String phone;
+	private Role role;
 	
 	public UserDto() {
 		// TODO Auto-generated constructor stub
@@ -17,6 +19,7 @@ public class UserDto {
 		name = user.getName();
 		email = user.getEmail();
 		phone = user.getPhone();
+		role = user.getRole();
 	}
 
 	public Integer getId() {
@@ -49,5 +52,13 @@ public class UserDto {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 }
