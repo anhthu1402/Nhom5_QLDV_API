@@ -37,4 +37,27 @@ public class ReviewController {
 		return reviewService.addReviewDetail(reviewId, tagRateId);
 	}
 	
+	// get review by user id
+	@RequestMapping(value = "/user-id/{user-id}", method = RequestMethod.GET)
+	public List<Review> getAllReview(@PathVariable(value = "user-id") Integer userId){
+		return reviewService.getAllReviewsByUserId(userId);
+	}
+	
+	@RequestMapping(value = "/statistic/tag-id/{tag-id}", method = RequestMethod.GET)
+	public List<Integer> getReviewStatisticByTagId(@PathVariable(value = "tag-id") Integer tagId){
+		return reviewService.getReviewStatisticByTagId(tagId);
+	}
+	
+	@RequestMapping(value = "/filter/tag-id/{tag-id}/rate/{rate}", method = RequestMethod.GET)
+	public List<Review> getListReviewByFilter(@PathVariable(value = "tag-id") Integer tagId, @PathVariable(value = "rate") Integer rate){
+		return reviewService.getListReviewByFilter(tagId, rate);
+	}
+	
+	// get review by id
+	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+	public Review getReviewById(@PathVariable(value = "id") Integer id) {
+		return reviewService.getReviewById(id);
+	}
+	
+	
 }
