@@ -132,8 +132,21 @@ public class ReviewService {
 		}
 	}
 	
-	// review statistics 
-	public List<Integer> getReviewStatisticByTagId(Integer tagId){
+	// get ReviewStatistic by tag id and rate
+	public ReviewStatistics getReviewStatistic(Integer tagId, Integer rate) {
+		List<TagRate> list = tagRateRepository.findAll();
+		for (TagRate tagRate : list) {
+			if(tagRate.getTag().getId() == tagId) {
+				if(tagRate.getRate() == rate) {
+					return new ReviewStatistics(tagRate);
+				}
+			}
+		}
+		return null;
+	}
+	
+	// review statistics by tag id
+	public ReviewStatistics getReviewStatisticByTagId(Integer tagId){
 		List<Review> list = getAllReviews();
 		Integer count = 0, rate = 0;
 		for (Review review : list) {
@@ -147,9 +160,25 @@ public class ReviewService {
 			}
 		}
 		Double average = (rate*1.0)/count;
-		List<Integer> result = new ArrayList<Integer>();
-		result.add(count);
-		result.add((int) Math.round(average));
+		ReviewStatistics revSta = getReviewStatistic(tagId, (int) Math.round(average));
+		if(revSta != null) {
+			revSta.setCount(count);
+			return revSta;
+		}
+		return null;
+	}
+	
+	// get all review statistic
+	public List<ReviewStatistics> getAllReviewStatistic(){
+		List<Tag> listTag = tagRepository.findAll();
+		List<ReviewStatistics> result = new ArrayList<ReviewStatistics>();
+		for (Tag tag : listTag) {
+			ReviewStatistics reviewStatistics = getReviewStatisticByTagId(tag.getId());
+			result.add(reviewStatistics);
+		}
+		if(result.isEmpty()) {
+			return null;
+		}
 		return result;
 	}
 }

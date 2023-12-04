@@ -10,6 +10,10 @@ public class ReviewStatistics {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public ReviewStatistics(TagRate tagRate) {
+		this.tagRate = tagRate;
+	}
+	
 	public ReviewStatistics(Integer count, TagRate tagRate) {
 		this.count = count;
 		this.tagRate = tagRate;

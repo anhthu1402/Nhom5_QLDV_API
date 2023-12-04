@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qldv.api.dto.ReviewStatistics;
 import com.qldv.api.model.Review;
 import com.qldv.api.service.ReviewService;
 
@@ -44,14 +45,22 @@ public class ReviewController {
 		return reviewService.getAllReviewsByUserId(userId);
 	}
 	
+	// review statistics 
 	@RequestMapping(value = "/statistic/tag/{tag-id}", method = RequestMethod.GET)
-	public List<Integer> getReviewStatisticByTagId(@PathVariable(value = "tag-id") Integer tagId){
+	public ReviewStatistics getReviewStatisticByTagId(@PathVariable(value = "tag-id") Integer tagId){
 		return reviewService.getReviewStatisticByTagId(tagId);
 	}
 	
+	// get list review by filter
 	@RequestMapping(value = "/filter", method = RequestMethod.GET)
 	public List<Review> getListReviewByFilter(@RequestParam(value = "tag-id", required = false) Integer tagId, @RequestParam(value = "rate", required = false) Integer rate){
 		return reviewService.getListReviewByFilter(tagId, rate);
+	}
+	
+	// get all review statistic
+	@RequestMapping(value = "/statistic", method = RequestMethod.GET)
+	public List<ReviewStatistics> getAllReviewStatistic(){
+		return reviewService.getAllReviewStatistic();
 	}
 	
 	// get review by id
