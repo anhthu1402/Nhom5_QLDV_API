@@ -96,13 +96,13 @@ public class ReviewService {
 	public List<Review> getListReviewByFilter(Integer tagId, Integer rate){
 		List<Review> list = getAllReviews();
 		List<Review> result = new ArrayList<Review>();
-		if(tagId != 0) {
+		if(tagId != null) {
 			for (Review review : list) {
 				List<ReviewTag> reviewTags = review.getDetails();
 				for (ReviewTag reviewTag : reviewTags) {
 					TagRate tagRate = reviewTag.getTagRate();
 					if(tagRate.getTag().getId() == tagId) {
-						if(rate != 0) {
+						if(rate != null) {
 							if(tagRate.getRate() == rate) {
 								result.add(review);
 							}
@@ -117,7 +117,7 @@ public class ReviewService {
 			return result;
 		}
 		else {
-			if(rate != 0) {
+			if(rate != null) {
 				for (Review review : list) {
 					if(review.getRate() == rate) {
 						result.add(review);

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.model.Review;
@@ -32,29 +33,29 @@ public class ReviewController {
 	}
 	
 	// add reviewDetail
-	@RequestMapping(value = "/details/review-id/{review-id}/tag-rate-id/{tag-rate-id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/details/{review-id}/tag-rate/{tag-rate-id}", method = RequestMethod.PUT)
 	public Review addReviewDetail(@PathVariable(value = "review-id") Integer reviewId, @PathVariable(value = "tag-rate-id") Integer tagRateId) {
 		return reviewService.addReviewDetail(reviewId, tagRateId);
 	}
 	
 	// get review by user id
-	@RequestMapping(value = "/user-id/{user-id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/{user-id}", method = RequestMethod.GET)
 	public List<Review> getAllReview(@PathVariable(value = "user-id") Integer userId){
 		return reviewService.getAllReviewsByUserId(userId);
 	}
 	
-	@RequestMapping(value = "/statistic/tag-id/{tag-id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/statistic/tag/{tag-id}", method = RequestMethod.GET)
 	public List<Integer> getReviewStatisticByTagId(@PathVariable(value = "tag-id") Integer tagId){
 		return reviewService.getReviewStatisticByTagId(tagId);
 	}
 	
-	@RequestMapping(value = "/filter/tag-id/{tag-id}/rate/{rate}", method = RequestMethod.GET)
-	public List<Review> getListReviewByFilter(@PathVariable(value = "tag-id") Integer tagId, @PathVariable(value = "rate") Integer rate){
+	@RequestMapping(value = "/filter", method = RequestMethod.GET)
+	public List<Review> getListReviewByFilter(@RequestParam(value = "tag-id", required = false) Integer tagId, @RequestParam(value = "rate", required = false) Integer rate){
 		return reviewService.getListReviewByFilter(tagId, rate);
 	}
 	
 	// get review by id
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public Review getReviewById(@PathVariable(value = "id") Integer id) {
 		return reviewService.getReviewById(id);
 	}
