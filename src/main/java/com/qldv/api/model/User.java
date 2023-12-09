@@ -29,7 +29,7 @@ public class User {
 	@Column(name = "email", unique = true)
 	private String email;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@Column(name = "password")
 	private String password;
 	
@@ -52,7 +52,7 @@ public class User {
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
