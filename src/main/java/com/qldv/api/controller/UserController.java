@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.dto.UserDto;
+import com.qldv.api.model.LoginForm;
 import com.qldv.api.model.Role;
 import com.qldv.api.model.User;
 import com.qldv.api.service.RoleService;
@@ -28,7 +30,7 @@ public class UserController {
 	
 	//Create user
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public User createUser(@RequestBody User userDetail) {
+	public UserDto createUser(@RequestBody User userDetail) {
 		return userService.createUser(userDetail);
 	}
 	//get all user
@@ -41,10 +43,20 @@ public class UserController {
 	public UserDto getAccountByNameOrEmail(@PathVariable(value = "email") String email) {
 		return userService.getUsersByEmail(email);
 	}
-	//sign in by password and email
-	@RequestMapping(value = "/signin/{email}/password/{password}", method = RequestMethod.POST)
-	public UserDto signinUser(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password) {
-		return userService.signinUser(email, password);
+	//sign in for user
+	@RequestMapping(value = "/signin-user", method = RequestMethod.POST)
+	public UserDto signinUser(@RequestBody LoginForm loginForm) {
+		return userService.signinUser(loginForm);
+	}
+	//sign in admin
+	@RequestMapping(value = "/signin-admin", method = RequestMethod.POST)
+	public UserDto signinAdmin(@RequestBody LoginForm loginForm) {
+		return userService.signinAdmin(loginForm);
+	}
+	//sign in for roles
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	public UserDto signIn(@RequestBody LoginForm loginForm, @RequestParam(value = "role", required = false) Integer roleId) {
+		return userService.signIn(loginForm, roleId);
 	}
 	
 	//check password

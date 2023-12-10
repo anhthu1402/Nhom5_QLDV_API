@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.dto.TagDto;
+import com.qldv.api.dto.TagRateDto;
 import com.qldv.api.model.Tag;
 import com.qldv.api.model.TagRate;
 import com.qldv.api.service.TagService;
@@ -27,7 +28,11 @@ public class TagController {
 	public Tag createTag(@RequestBody Tag tag) {
 		return tagService.createTag(tag);
 	}
-	
+	//create tag detail
+	@RequestMapping(value = "/{id}/detail", method = RequestMethod.POST)
+	public TagRate createTagDetail(@PathVariable(value = "id") Integer id, @RequestBody TagRateDto tagRateDto) {
+		return tagService.createTagDetail(id, tagRateDto);
+	}
 	// get all tags
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public List<Tag> getAllTags(){
@@ -50,7 +55,7 @@ public class TagController {
 	
 	// get tag by id
 	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
-	public Tag getTagById(@PathVariable(value = "id") Integer id){
+	public TagDto getTagById(@PathVariable(value = "id") Integer id){
 		return tagService.getTagById(id);
 	}
 	
@@ -65,5 +70,12 @@ public class TagController {
 	public Boolean deleteTag(@PathVariable(value = "id") Integer id) {
 		return tagService.deleteTag(id);
 	}
+	
+	//update tag detail
+	@RequestMapping(value = "/tagrate/{id}", method = RequestMethod.PUT)
+	public TagRate updateTagRate(@PathVariable(value = "id") Integer id, @RequestBody TagRate tagRateDetail) {
+		return tagService.updateTagRate(id, tagRateDetail);
+	}
+	
 	
 }

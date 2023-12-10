@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qldv.api.dto.TagDto;
+import com.qldv.api.dto.TagRateDto;
 import com.qldv.api.model.Tag;
 import com.qldv.api.model.TagRate;
 import com.qldv.api.repository.TagRateRepository;
@@ -27,10 +28,16 @@ public class TagService {
 	}
 	
 	// add tagDetail
-//	public TagDto createTagDetail(Tag tag, TagRate tagRate){
-//		
-//	}
-//	
+	public TagRate createTagDetail(Integer tagId, TagRateDto tagRateDto ){
+		Tag tag = tagRepository.findById(tagId).get();
+		TagRate tagRate = new TagRate();
+		tagRate.setTag(tag);
+		tagRate.setRate(tagRateDto.getRate());
+		tagRate.setContent(tagRateDto.getContent());
+		return tagRateRepository.save(tagRate);
+	}
+	
+	
 	// get all tags
 	public List<Tag> getAllTags(){
 		return tagRepository.findAll();
@@ -40,21 +47,8 @@ public class TagService {
 	public List<TagRate> getAllTagRates(){
 		return tagRateRepository.findAll();
 	}
-	//get tag rate by tag 
-//	public List<TagRate> getAllTagRateByTagId(Integer tagid){
-//		List<TagRate> tagrates = getAllTagRates();
-//		List<TagRate> result = new ArrayList<TagRate>();
-//		for (TagRate tagrate : tagrates) {
-//			if(tagrate.getTag().getId() == tagid) {
-//				result.add(tagrate);
-//			}
-//		}
-//		if(result.isEmpty()) {
-//			return null;
-//		}
-//		return result;
-//	}
 	
+	//get all tag detail
 	public List<TagDto> getAllTagDetail(){
 		List<Tag> tags = getAllTags();
 		List <TagDto> result = new ArrayList<TagDto>();
@@ -66,10 +60,10 @@ public class TagService {
 	
 	
 	// get tag by id
-	public Tag getTagById(Integer id) {
+	public TagDto getTagById(Integer id) {
 		Optional<Tag> tag = tagRepository.findById(id);
 		if(tag.isPresent()) {
-			return tag.get();
+			return new TagDto(tag.get());
 		}
 		return null;
 	}
@@ -98,6 +92,18 @@ public class TagService {
 			return true;
 		}
 		return false;
+	}
+	
+	//update tag detail
+	public TagRate updateTagRate(Integer id, TagRate tagRateDetail){
+		Optional<TagRate> tagRate = tagRateRepository.findById(id);
+		if(tagRate.isPresent()) {
+			TagRate t = tagRate.get();
+			t.setRate(tagRateDetail.getRate());;
+			t.setContent(tagRateDetail.getContent());
+			return tagRateRepository.save(t);
+		}
+		return tagRateRepository.save(tagRateDetail);
 	}
 	
 }

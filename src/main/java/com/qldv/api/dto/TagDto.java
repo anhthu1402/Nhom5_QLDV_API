@@ -9,7 +9,7 @@ import com.qldv.api.model.TagRate;
 public class TagDto {
 	private Integer id;
 	private String name;
-	private List<TagRate> details = new ArrayList<TagRate>();
+	private List<TagRateDto> details = new ArrayList<TagRateDto>();
 	
 	public TagDto() {
 		// TODO Auto-generated constructor stub
@@ -18,7 +18,9 @@ public class TagDto {
 	public TagDto(Tag tag) {
 		id = tag.getId();
 		name = tag.getName();
-		details = tag.getDetails();
+		for (TagRate tagRate : tag.getDetails()) {
+			details.add(new TagRateDto(tagRate));
+		}
 	}
 
 	public Integer getId() {
@@ -37,11 +39,11 @@ public class TagDto {
 		this.name = name;
 	}
 
-	public List<TagRate> getDetails() {
+	public List<TagRateDto> getDetails() {
 		return details;
 	}
 
-	public void setDetails(List<TagRate> details) {
+	public void setDetails(List<TagRateDto> details) {
 		this.details = details;
 	}
 }

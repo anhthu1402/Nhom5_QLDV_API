@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qldv.api.dto.UserDto;
+import com.qldv.api.model.LoginForm;
 import com.qldv.api.model.Role;
 import com.qldv.api.model.User;
 import com.qldv.api.repository.RoleRepository;
@@ -21,12 +22,18 @@ public class UserService {
 	@Autowired
 	RoleRepository roleRepository;
 	
-	//Create user  not done
-	public User createUser(User user) {
-		Optional<Role> defaultRole = roleRepository.findById(1);
-		Role role = defaultRole.get();
+	//Create user 
+	public UserDto createUser(User user) {
+		List<User> users = userRepository.findAll();
+		for (User user2 : users) {
+			if(user2.getEmail().equals(user.getEmail())) {
+				return null;
+			}
+		}
+		Role role = roleRepository.findById(1).get();
 	    user.setRole(role);
-	    return userRepository.save(user);
+	    userRepository.save(user);
+	    return new UserDto(user);
 	}
 	//get all user
 	public List<UserDto> getAllUsers(){
@@ -44,17 +51,51 @@ public class UserService {
 			return new UserDto(user.get());
 		return null;
 	}
-
-	//sign in by password and email
-	public UserDto signinUser(String email, String password) {
-		Optional<User> user = userRepository.findByEmail(email);
+	//sign in for user
+	public UserDto signinUser(LoginForm loginForm) {
+		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
 		if (user.isPresent()) {
-			if (user.get().getPassword().equals(password)) {
-				return new UserDto(user.get());
+			if (user.get().getPassword().equals(loginForm.getPassword())) {
+				if(user.get().getRole().getId()== 1) {
+					return new UserDto(user.get());
+				}
 			}
 		}
 		return null;
 	}
+	//sign in for admin
+	public UserDto signinAdmin(LoginForm loginForm) {
+		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+		if (user.isPresent()) {
+			if (user.get().getPassword().equals(loginForm.getPassword())) {
+				if(user.get().getRole().getId()== 2) {
+					return new UserDto(user.get());
+				}
+			}
+		}
+		return null;
+	}
+	
+	//sign in
+	public UserDto signIn(LoginForm loginForm, Integer roleId) {
+		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+		if (user.isPresent()) {
+			if (user.get().getPassword().equals(loginForm.getPassword())) {
+				if(roleId == null) {
+					if(user.get().getRole().getId()== 1) {
+						return new UserDto(user.get());
+					}
+				}else {
+					if(user.get().getRole().getId()== roleId) {
+						return new UserDto(user.get());
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+	
 	//check password
 	public boolean checkPassword(String email, String password) {
 		Optional<User> user = userRepository.findByEmail(email);
