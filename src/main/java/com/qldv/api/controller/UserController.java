@@ -60,14 +60,14 @@ public class UserController {
 	}
 	
 	//check password
-	@RequestMapping(value = "/{email}/password/{password}", method = RequestMethod.POST)
-	public boolean checkPassword(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password) {
-		return userService.checkPassword(email, password);
+	@RequestMapping(value = "/check-password", method = RequestMethod.POST)
+	public boolean checkPassword(@RequestBody LoginForm loginForm) {
+		return userService.checkPassword(loginForm);
 	}
 	//update password 
-	@RequestMapping(value = "/{email}/password/{password}", method = RequestMethod.PUT)
-	public boolean updatePassword(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password) {
-		return userService.updatePassword(email, password);
+	@RequestMapping(value = "/update-password", method = RequestMethod.PUT)
+	public boolean updatePassword(@RequestBody LoginForm updateForm) {
+		return userService.updatePassword(updateForm);
 	}
 	//update user
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)

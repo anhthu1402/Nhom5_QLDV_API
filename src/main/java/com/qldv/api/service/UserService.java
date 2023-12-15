@@ -97,22 +97,22 @@ public class UserService {
 	
 	
 	//check password
-	public boolean checkPassword(String email, String password) {
-		Optional<User> user = userRepository.findByEmail(email);
+	public boolean checkPassword(LoginForm loginForm) {
+		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
 		if(user.isPresent()) {
 			User u = user.get();
-			if (u.getPassword().equals(password)) {
+			if (u.getPassword().equals(loginForm.getPassword())) {
 				return true;
 			}
 		}
 		return false;
 	}	
 	//update password 
-	public boolean updatePassword(String email, String newpassword) {
-		Optional<User> user = userRepository.findByEmail(email);
+	public boolean updatePassword(LoginForm updateForm) {
+		Optional<User> user = userRepository.findByEmail(updateForm.getEmail());
 		if(user.isPresent()) {
 			User u = user.get();
-			u.setPassword(newpassword);;
+			u.setPassword(updateForm.getPassword());;
 			userRepository.save(u);
 			return true;
 		}
