@@ -14,7 +14,7 @@ import com.qldv.api.dto.TagDto;
 import com.qldv.api.dto.TagRateDto;
 import com.qldv.api.model.Tag;
 import com.qldv.api.model.TagRate;
-import com.qldv.api.service.TagService;
+import com.qldv.api.service.Implement.TagService;
 
 @RestController
 @CrossOrigin

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.dto.ReviewStatistics;
 import com.qldv.api.model.Review;
-import com.qldv.api.service.ReviewService;
+import com.qldv.api.service.Implement.ReviewService;
 
 @RestController
 @CrossOrigin

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.model.Role;
-import com.qldv.api.service.RoleService;
+import com.qldv.api.service.Implement.RoleService;
 
 @RestController
 @CrossOrigin

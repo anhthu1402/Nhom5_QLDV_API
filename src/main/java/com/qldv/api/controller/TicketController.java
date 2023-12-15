@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.model.Ticket;
-import com.qldv.api.service.TicketService;
+import com.qldv.api.service.Implement.TicketService;
 
 @RestController
 @CrossOrigin

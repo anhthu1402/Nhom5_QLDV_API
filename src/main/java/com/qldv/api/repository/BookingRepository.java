@@ -1,5 +1,8 @@
 package com.qldv.api.repository;
 
-public interface BookingRepository {
+import com.qldv.api.model.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
 }
