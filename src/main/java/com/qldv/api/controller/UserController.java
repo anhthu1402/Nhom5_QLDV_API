@@ -44,19 +44,19 @@ public class UserController {
 		return userService.getUsersByEmail(email);
 	}
 	//sign in for user
-	@RequestMapping(value = "/signin-user", method = RequestMethod.POST)
-	public UserDto signinUser(@RequestBody LoginForm loginForm) {
-		return userService.signinUser(loginForm);
-	}
+//	@RequestMapping(value = "/signin-user", method = RequestMethod.POST)
+//	public UserDto signinUser(@RequestBody LoginForm loginForm) {
+//		return userService.signinUser(loginForm);
+//	}
 	//sign in admin
-	@RequestMapping(value = "/signin-admin", method = RequestMethod.POST)
-	public UserDto signinAdmin(@RequestBody LoginForm loginForm) {
-		return userService.signinAdmin(loginForm);
-	}
+//	@RequestMapping(value = "/signin-admin", method = RequestMethod.POST)
+//	public UserDto signinAdmin(@RequestBody LoginForm loginForm) {
+//		return userService.signinAdmin(loginForm);
+//	}
 	//sign in for roles
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public UserDto signIn(@RequestBody LoginForm loginForm, @RequestParam(value = "role", required = false) Integer roleId) {
-		return userService.signIn(loginForm, roleId);
+	public UserDto signIn(@RequestBody LoginForm loginForm, @RequestParam(value = "role", required = false) Integer role) {
+		return userService.signIn(loginForm, role);
 	}
 	
 	//check password

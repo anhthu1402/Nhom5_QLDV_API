@@ -52,41 +52,41 @@ public class UserService {
 		return null;
 	}
 	//sign in for user
-	public UserDto signinUser(LoginForm loginForm) {
-		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
-		if (user.isPresent()) {
-			if (user.get().getPassword().equals(loginForm.getPassword())) {
-				if(user.get().getRole().getId()== 1) {
-					return new UserDto(user.get());
-				}
-			}
-		}
-		return null;
-	}
+//	public UserDto signinUser(LoginForm loginForm) {
+//		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+//		if (user.isPresent()) {
+//			if (user.get().getPassword().equals(loginForm.getPassword())) {
+//				if(user.get().getRole().getId()== 1) {
+//					return new UserDto(user.get());
+//				}
+//			}
+//		}
+//		return null;
+//	}
 	//sign in for admin
-	public UserDto signinAdmin(LoginForm loginForm) {
-		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
-		if (user.isPresent()) {
-			if (user.get().getPassword().equals(loginForm.getPassword())) {
-				if(user.get().getRole().getId()== 2) {
-					return new UserDto(user.get());
-				}
-			}
-		}
-		return null;
-	}
+//	public UserDto signinAdmin(LoginForm loginForm) {
+//		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+//		if (user.isPresent()) {
+//			if (user.get().getPassword().equals(loginForm.getPassword())) {
+//				if(user.get().getRole().getId()== 2) {
+//					return new UserDto(user.get());
+//				}
+//			}
+//		}
+//		return null;
+//	}
 	
 	//sign in
-	public UserDto signIn(LoginForm loginForm, Integer roleId) {
+	public UserDto signIn(LoginForm loginForm, Integer role) {
 		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
 		if (user.isPresent()) {
 			if (user.get().getPassword().equals(loginForm.getPassword())) {
-				if(roleId == null) {
+				if(role == null) {
 					if(user.get().getRole().getId()== 1) {
 						return new UserDto(user.get());
 					}
 				}else {
-					if(user.get().getRole().getId()== roleId) {
+					if(user.get().getRole().getId() != 1) {
 						return new UserDto(user.get());
 					}
 				}
