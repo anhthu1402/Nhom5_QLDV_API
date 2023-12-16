@@ -5,80 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d543051d-e7a5-49b5-829d-b95755da44c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/TagController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/dto/ReviewStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/ReviewStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/dto/TagDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/TagDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/dto/TagRateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/TagRateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/BookingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/BookingDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/ReviewTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/ReviewTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/TagRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/TagRate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/BookingDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/BookingDetailsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/BookingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/ReviewTagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/ReviewTagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/TagRateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/TagRateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/TicketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/IBookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/IBookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/BookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/TagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/service/Implement/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/BookingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/ReviewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/RoleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/TagController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/TicketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/dto/ReviewStatistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/dto/TagDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/dto/TagRateDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/dto/UserDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/Booking.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/BookingDetails.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/LoginForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/Review.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/ReviewTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/Tag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/TagRate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/BookingDetailsRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/BookingRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/ReviewRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/ReviewTagRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/RoleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/TagRateRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/TagRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/TicketRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/repository/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/BookingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/ReviewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/RoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/TagService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/TicketService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,30 +37,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/linh/Coding/Nhom5_QLDV_API",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "696560994249578f22fc5501d5d8d0a2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/linh/Coding/Nhom5_QLDV_API&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;696560994249578f22fc5501d5d8d0a2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="qldv.api" />
@@ -152,7 +82,8 @@
       <workItem from="1701787429927" duration="908000" />
       <workItem from="1702647456417" duration="2197000" />
       <workItem from="1702649921750" duration="36000" />
-      <workItem from="1702649968177" duration="4185000" />
+      <workItem from="1702649968177" duration="6611000" />
+      <workItem from="1702730889243" duration="388000" />
     </task>
     <servers />
   </component>
