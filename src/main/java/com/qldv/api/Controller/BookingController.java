@@ -1,5 +1,7 @@
 package com.qldv.api.Controller;
 
+import com.qldv.api.DTO.BookingRequest;
+import com.qldv.api.DTO.BookingResponse;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Service.Implement.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,8 @@ public class BookingController {
     }
 
     @PostMapping("/book")
-    public ResponseEntity<Booking> bookTicket(@RequestBody Booking booking) {
-        Booking bookedTicket = _bookingService.bookTicket(booking);
+    public ResponseEntity<BookingResponse> bookTicket(@RequestBody BookingRequest request) {
+        BookingResponse bookedTicket = _bookingService.bookTicket(request);
         return new ResponseEntity<>(bookedTicket, HttpStatus.CREATED);
     }
 

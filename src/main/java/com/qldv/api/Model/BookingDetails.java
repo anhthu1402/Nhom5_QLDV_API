@@ -29,20 +29,20 @@ public class BookingDetails {
 	private Ticket ticket;
 	
 	@Column(name = "quantity")
-	private Integer quantity;
+	private int quantity;
 	
 	@Column(name = "total-price")
-	private Long totalPrice;
+	private long totalPrice;
 	
 	public BookingDetails() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -70,11 +70,11 @@ public class BookingDetails {
 		this.quantity = quantity;
 	}
 
-	public Long getTotalPrice() {
+	public long getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(Long totalPrice) {
+	public void setTotalPrice(long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 }

@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d543051d-e7a5-49b5-829d-b95755da44c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/StatictisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingDetailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/FastestTicket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Exception/CustomValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IStatictisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/StatisticService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/BookingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/BookingDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Controller/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Controller/BookingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Model/BookingDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Model/BookingDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/BookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/BookingService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +41,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -83,7 +99,8 @@
       <workItem from="1702647456417" duration="2197000" />
       <workItem from="1702649921750" duration="36000" />
       <workItem from="1702649968177" duration="6611000" />
-      <workItem from="1702730889243" duration="388000" />
+      <workItem from="1702730889243" duration="1316000" />
+      <workItem from="1702805966946" duration="10212000" />
     </task>
     <servers />
   </component>

@@ -18,6 +18,7 @@ public class BookingDetailService implements IBookingService {
     }
 
     public List<BookingDetails> getAllBookings() {
+
         return _bookingDetailRepository.findAll();
     }
 
