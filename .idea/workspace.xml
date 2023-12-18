@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d543051d-e7a5-49b5-829d-b95755da44c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/StatictisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingDetailRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/BookingResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/DTO/FastestTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Exception/CustomValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IStatictisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/StatisticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/BookingDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Model/BookingDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/IBookingDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/BookingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Controller/BookingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Controller/BookingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Model/BookingDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Model/BookingDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/BookingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/BookingService.class" afterDir="false" />
-    </list>
+    <list default="true" id="d543051d-e7a5-49b5-829d-b95755da44c9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +82,7 @@
       <workItem from="1702649921750" duration="36000" />
       <workItem from="1702649968177" duration="6611000" />
       <workItem from="1702730889243" duration="1316000" />
-      <workItem from="1702805966946" duration="10212000" />
+      <workItem from="1702805966946" duration="10591000" />
     </task>
     <servers />
   </component>
