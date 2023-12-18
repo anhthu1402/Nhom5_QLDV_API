@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.DTO.UserDto;
 import com.qldv.api.Model.LoginForm;
-import com.qldv.api.Model.Role;
 import com.qldv.api.Model.User;
 import com.qldv.api.Service.Implement.RoleService;
 import com.qldv.api.Service.Implement.UserService;
@@ -43,16 +42,7 @@ public class UserController {
 	public UserDto getAccountByNameOrEmail(@PathVariable(value = "email") String email) {
 		return userService.getUsersByEmail(email);
 	}
-	//sign in for user
-//	@RequestMapping(value = "/signin-user", method = RequestMethod.POST)
-//	public UserDto signinUser(@RequestBody LoginForm loginForm) {
-//		return userService.signinUser(loginForm);
-//	}
-	//sign in admin
-//	@RequestMapping(value = "/signin-admin", method = RequestMethod.POST)
-//	public UserDto signinAdmin(@RequestBody LoginForm loginForm) {
-//		return userService.signinAdmin(loginForm);
-//	}
+
 	//sign in for roles
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public UserDto signIn(@RequestBody LoginForm loginForm, @RequestParam(value = "role", required = false) Integer role) {
@@ -75,8 +65,8 @@ public class UserController {
 		return userService.updateUser(id, userDetail);
 	}
 	//set role
-	@RequestMapping(value = "/{id}/role", method = RequestMethod.PUT)
-	public boolean setRole(@PathVariable(value = "id") Integer id, @RequestBody Role role) {
-		return userService.setRole(id, role);
+	@RequestMapping(value = "/{id}/role/{role_id}", method = RequestMethod.PUT)
+	public boolean setRole(@PathVariable(value = "id") Integer id, @PathVariable(value = "role_id") Integer role_id) {
+		return userService.setRole(id, role_id);
 	}
 }
