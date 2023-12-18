@@ -51,30 +51,7 @@ public class UserService {
 			return new UserDto(user.get());
 		return null;
 	}
-	//sign in for user
-//	public UserDto signinUser(LoginForm loginForm) {
-//		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
-//		if (user.isPresent()) {
-//			if (user.get().getPassword().equals(loginForm.getPassword())) {
-//				if(user.get().getRole().getId()== 1) {
-//					return new UserDto(user.get());
-//				}
-//			}
-//		}
-//		return null;
-//	}
-	//sign in for admin
-//	public UserDto signinAdmin(LoginForm loginForm) {
-//		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
-//		if (user.isPresent()) {
-//			if (user.get().getPassword().equals(loginForm.getPassword())) {
-//				if(user.get().getRole().getId()== 2) {
-//					return new UserDto(user.get());
-//				}
-//			}
-//		}
-//		return null;
-//	}
+
 	
 	//sign in
 	public UserDto signIn(LoginForm loginForm, Integer role) {
@@ -130,8 +107,9 @@ public class UserService {
 		return null;
 	}
 	//set role
-	public boolean setRole(Integer id, Role role) {
+	public boolean setRole(Integer id, Integer idRole) {
 		Optional<User> user = userRepository.findById(id);
+		Role role = roleRepository.findById(idRole).get();
 		if(user.isPresent()) {
 			User u = user.get();
 			u.setRole(role);
