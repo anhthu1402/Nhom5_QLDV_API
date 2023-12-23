@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/api/statictis")
+@RequestMapping(value = "/api/statistic")
 public class StatictisController {
     private final StatisticService _statisticService;
 
