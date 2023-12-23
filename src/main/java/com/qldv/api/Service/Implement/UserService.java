@@ -30,10 +30,14 @@ public class UserService {
 				return null;
 			}
 		}
-		Role role = roleRepository.findById(1).get();
-	    user.setRole(role);
-	    userRepository.save(user);
-	    return new UserDto(user);
+		Optional<Role> role = roleRepository.findByType("Người dùng");
+		if(role.isPresent()) {
+			Role r = role.get();
+			user.setRole(r);
+			userRepository.save(user);
+			return new UserDto(user);
+		}
+	    return null;
 	}
 	//get all user
 	public List<UserDto> getAllUsers(){
