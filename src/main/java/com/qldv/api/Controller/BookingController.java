@@ -3,6 +3,7 @@ package com.qldv.api.Controller;
 import com.qldv.api.DTO.BookingRequest;
 import com.qldv.api.DTO.BookingResponse;
 import com.qldv.api.DTO.UpdateStatusBooking;
+import com.qldv.api.Exception.NotFoundException;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Service.Implement.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class BookingController {
     @GetMapping("/{id}")
     public ResponseEntity<Booking> getBookingById(@PathVariable Integer id) {
         Booking booking = _bookingService.getBookingById(id);
+        if(booking == null){
+            throw new NotFoundException("No booking found for ID: " + id);
+        }
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
