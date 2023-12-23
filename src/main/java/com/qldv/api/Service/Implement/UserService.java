@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qldv.api.DTO.UserDto;
+import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.LoginForm;
 import com.qldv.api.Model.Role;
 import com.qldv.api.Model.User;
@@ -24,20 +25,25 @@ public class UserService {
 	
 	//Create user 
 	public UserDto createUser(User user) {
-		List<User> users = userRepository.findAll();
-		for (User user2 : users) {
-			if(user2.getEmail().equals(user.getEmail())) {
-				return null;
-			}
-		}
-		Optional<Role> role = roleRepository.findByType("Người dùng");
-		if(role.isPresent()) {
-			Role r = role.get();
-			user.setRole(r);
-			userRepository.save(user);
-			return new UserDto(user);
-		}
-	    return null;
+		 try {
+		        Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
+		        if (existingUser.isPresent()) {
+		            throw new CustomValidationException("Email đã tồn tại trong hệ thống.");
+		        }
+
+		        Optional<Role> role = roleRepository.findByType("Người dùng");
+		        if (role.isPresent()) {
+		            Role r = role.get();
+		            user.setRole(r);
+		            userRepository.save(user);
+		            return new UserDto(user);
+		        }
+		        throw new CustomValidationException("Không thể tạo tài khoản người dùng.");
+		    } catch (CustomValidationException e) {
+		        // Log the error message
+		        System.err.println("CustomValidationException: " + e.getMessage());
+		        throw e; 
+		    }
 	}
 	//get all user
 	public List<UserDto> getAllUsers(){
@@ -55,25 +61,36 @@ public class UserService {
 			return new UserDto(user.get());
 		return null;
 	}
+	// get users by id
+	public UserDto getUsersById(Integer id){
+		Optional<User> user = userRepository.findById(id);
+		if (user.isPresent()) 
+			return new UserDto(user.get());
+		return null;
+	}
 
 	
 	//sign in
 	public UserDto signIn(LoginForm loginForm, Integer role) {
-		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
-		if (user.isPresent()) {
-			if (user.get().getPassword().equals(loginForm.getPassword())) {
-				if(role == null) {
-					if(user.get().getRole().getId()== 1) {
-						return new UserDto(user.get());
-					}
-				}else {
-					if(user.get().getRole().getId() != 1) {
-						return new UserDto(user.get());
+			Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+			if (user.isPresent()) {
+				if (user.get().getPassword().equals(loginForm.getPassword())) {
+					if(role == null) {
+						if(user.get().getRole().getId()== 1) {
+							return new UserDto(user.get());
+						}
+						throw new CustomValidationException("Đăng nhập không hợp lệ");
+					}else {
+						if(user.get().getRole().getId() != 1) {
+							return new UserDto(user.get());
+						}
+						throw new CustomValidationException("Đăng nhập không hợp lệ");
 					}
 				}
+				throw new CustomValidationException("Mật khẩu chưa chính xác.");
 			}
-		}
-		return null;
+			throw new CustomValidationException("Tài khoản không tồn tại.");
+		
 	}
 	
 	
@@ -108,7 +125,7 @@ public class UserService {
 			u.setPhone(userDetail.getPhone());
 			return new UserDto(userRepository.save(u));
 		}
-		return null;
+		throw new CustomValidationException("Người dùng không được tìm thấy.");
 	}
 	//set role
 	public boolean setRole(Integer id, Integer idRole) {
