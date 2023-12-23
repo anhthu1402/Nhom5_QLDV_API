@@ -44,9 +44,4 @@ public class RoleController {
 			return roleService.updateRole(id, roleDetail);
 		}
 		
-		//delete role
-		@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-		public Boolean deleteRole(@PathVariable(value = "id") Integer id) {
-			return roleService.deleteRole(id);
-		}
 }

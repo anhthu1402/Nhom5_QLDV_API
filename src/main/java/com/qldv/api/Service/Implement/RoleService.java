@@ -45,18 +45,5 @@ public class RoleService {
 		return roleRepository.save(roleDetail);
 	}
 	
-	//delete role
-	public Boolean deleteRole(Integer id) {
-		Optional<Role> role = roleRepository.findById(id);
-		if(role.isPresent()) {
-			Role r = role.get();
-			List<User> users = r.getListUsers();
-			for (User user : users) {
-				user.setRole(null);
-			}
-			roleRepository.delete(r);
-			return true;
-		}
-		return false;
-	}
+
 }
