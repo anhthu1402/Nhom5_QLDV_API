@@ -6,40 +6,41 @@ import java.util.Date;
 import java.util.List;
 
 public class BookingRequest {
-    private Date bookingDate;
-    private Date touringDate;
-    private Integer quantity;
-    private Long totalPrice;
+    //private Date bookingDate;
+    private String touringDate;
+    private int quantity;
+    private long totalPrice;
     private List<BookingDetailRequest> bookingDetails;
-    public Date getBookingDate() {
-        return bookingDate;
-    }
+//    public Date getBookingDate() {
+//        return bookingDate;
+//    }
 
-    public void setBookingDate(Date bookingDate) {
-        this.bookingDate = bookingDate;
-    }
+//    public void setBookingDate(Date bookingDate) {
+//        this.bookingDate = bookingDate;
+//    }
 
-    public Date getTouringDate() {
+    public String getTouringDate() {
         return touringDate;
     }
 
-    public void setTouringDate(Date touringDate) {
+    public void setTouringDate(String touringDate) {
         this.touringDate = touringDate;
     }
 
-    public Integer getQuantity() {
+
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Long getTotalPrice() {
+    public long getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Long totalPrice) {
+    public void setTotalPrice(long totalPrice) {
         this.totalPrice = totalPrice;
     }
     public List<BookingDetailRequest> getBookingDetails() {

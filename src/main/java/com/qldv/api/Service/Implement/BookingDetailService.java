@@ -2,6 +2,7 @@ package com.qldv.api.Service.Implement;
 
 import com.qldv.api.Model.BookingDetails;
 import com.qldv.api.Repository.BookingDetailsRepository;
+import com.qldv.api.Service.IBookingDetailService;
 import com.qldv.api.Service.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class BookingDetailService implements IBookingService {
+public class BookingDetailService implements IBookingDetailService{
     private final BookingDetailsRepository _bookingDetailRepository;
 
     @Autowired

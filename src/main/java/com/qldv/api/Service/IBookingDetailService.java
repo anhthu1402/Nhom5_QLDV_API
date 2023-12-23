@@ -1,5 +1,5 @@
 package com.qldv.api.Service;
 
-public class IBookingDetailService {
+public interface IBookingDetailService {
 
 }

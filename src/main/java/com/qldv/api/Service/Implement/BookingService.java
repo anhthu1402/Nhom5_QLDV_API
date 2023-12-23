@@ -3,6 +3,7 @@ package com.qldv.api.Service.Implement;
 import com.qldv.api.DTO.BookingDetailRequest;
 import com.qldv.api.DTO.BookingRequest;
 import com.qldv.api.DTO.BookingResponse;
+import com.qldv.api.DTO.UpdateStatusBooking;
 import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Model.BookingDetails;
@@ -12,9 +13,15 @@ import com.qldv.api.Repository.BookingRepository;
 import com.qldv.api.Repository.TicketRepository;
 import com.qldv.api.Service.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -47,10 +54,24 @@ public class BookingService implements IBookingService {
 
     public BookingResponse bookTicket(BookingRequest request) {
         Booking savedBooking = new Booking();
-        savedBooking.setBookingDate(request.getBookingDate());
+        String dateString = request.getTouringDate(); // Sample date string
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+        try {
+            Date date = dateFormat.parse(dateString);
+            savedBooking.setTouringDate(date);
+
+        } catch (ParseException e) {
+            System.out.println("ParseException occurred: " + e.getMessage());
+        }
+
+
+        LocalDateTime currentDatetime = LocalDateTime.now();
+        Date date  = convertToDate(currentDatetime);
+        savedBooking.setBookingDate(date);
         savedBooking.setQuantity(request.getQuantity());
         savedBooking.setTotalPrice(request.getTotalPrice());
-        savedBooking.setTouringDate(request.getTouringDate());
+
         List<BookingDetailRequest> detailRequests = request.getBookingDetails();
         List<BookingDetails> details = new ArrayList<BookingDetails>();
         for (int i = 0; i < detailRequests.size(); i++) {
@@ -71,6 +92,11 @@ public class BookingService implements IBookingService {
 
 
     }
+    private static Date convertToDate(LocalDateTime localDateTime) {
+        // Convert LocalDateTime to Instant (UTC)
+        // Then convert Instant to Date
+        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
 
     public void cancelBooking(Integer id) {
         _bookingRepository.deleteById(id);
@@ -86,12 +112,25 @@ public class BookingService implements IBookingService {
         bookingDetails.setTicket(foundedTicket);
         return bookingDetails;
     }
+    public Booking updateBookingStatus(int id, UpdateStatusBooking updateStatus){
+        Optional<Booking> booking = _bookingRepository.findById(id);
+        if(booking.isPresent()) {
+            Booking model = booking.get();
+            model.setStatus(updateStatus.getStatus());
+            _bookingRepository.save(model);
+            return model;
+        }
+        throw new CustomValidationException("Booking is not found");
+    }
     private BookingResponse mapToBookingResponse(BookingRequest request){
+        LocalDateTime currentDatetime = LocalDateTime.now();
+        Date date  = convertToDate(currentDatetime);
         BookingResponse response = new BookingResponse();
-        response.setBookingDate(request.getBookingDate());
+        response.setBookingDate(date);
+        response.setTotalPrice(request.getTotalPrice());
         response.setQuantity(request.getQuantity());
         response.setTouringDate(request.getTouringDate());
-        response.setBookingDate(request.getBookingDate());
+
         response.setBookingDetails(request.getBookingDetails());
         return response;
     }

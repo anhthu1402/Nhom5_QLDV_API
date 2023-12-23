@@ -8,18 +8,18 @@ import jakarta.persistence.ManyToOne;
 
 public class BookingDetailRequest {
 
-    private Integer ticket_id;
+    private int ticketId;
     private int quantity;
 
     private long totalPrice;
 
 
-    public Integer getTicketId() {
-        return ticket_id;
+    public int getTicketId() {
+        return ticketId;
     }
 
-    public void setTicketId(int ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public Integer getQuantity() {

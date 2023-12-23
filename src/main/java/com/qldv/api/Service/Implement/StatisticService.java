@@ -2,6 +2,7 @@ package com.qldv.api.Service.Implement;
 
 import com.qldv.api.DTO.BookingResponse;
 import com.qldv.api.DTO.FastestTicket;
+import com.qldv.api.DTO.RevenueForMonth;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Model.BookingDetails;
 import com.qldv.api.Model.Ticket;
@@ -12,7 +13,8 @@ import com.qldv.api.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.text.DateFormatSymbols;
+import java.util.*;
 
 @Service
 public class StatisticService {
@@ -62,6 +64,54 @@ public class StatisticService {
         result.setQuantity(maxCount);
         result.setType(type);
         return result;
+    }
+    public RevenueForMonth getRevenueByMonth(){
+
+
+        // Convert the array to a list
+        List<String> monthList = new ArrayList<>();
+        monthList.add("January");
+        monthList.add("February");
+        monthList.add("March");
+        monthList.add("April");
+        monthList.add("May");
+        monthList.add("June");
+        monthList.add("July");
+        monthList.add("August");
+        monthList.add("September");
+        monthList.add("October");
+        monthList.add("November");
+        monthList.add("December");
+
+        List<Integer> revenue = new ArrayList<>();
+
+        for(int i = 0; i <= 11; i++) {
+            int count = 0;
+            List<Booking> bookings = _bookingRepository.findAll();
+            for(Booking booking: bookings){
+                if(booking.getStatus() == 1) {
+                    Date touringDate = booking.getTouringDate();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(touringDate);
+                    int month = calendar.get(Calendar.MONTH) + 1;
+                    if(month == i){
+                        count += booking.getTotalPrice();
+                    }
+                }
+
+            }
+            revenue.add(count);
+        }
+        RevenueForMonth result = new RevenueForMonth();
+        result.setMonths(monthList);
+        result.setRevenues(revenue);
+        return result;
+
+
+
+
+        // Get the month (Note: Month index starts from 0)
+
     }
 
 }
