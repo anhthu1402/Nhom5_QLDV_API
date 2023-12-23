@@ -85,6 +85,7 @@ public class BookingService implements IBookingService {
             for (BookingDetails bookingDetail : savedBooking.getBookingDetails()) {
                 bookingDetail.setBooking(savedBooking);
                 _bookingDetailRepository.save(bookingDetail);
+
             }
 
         }

@@ -93,7 +93,7 @@ public class StatisticService {
                     Date touringDate = booking.getTouringDate();
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(touringDate);
-                    int month = calendar.get(Calendar.MONTH) + 1;
+                    int month = calendar.get(Calendar.MONTH);
                     if(month == i){
                         count += booking.getTotalPrice();
                     }
