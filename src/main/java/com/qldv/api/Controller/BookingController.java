@@ -2,6 +2,7 @@ package com.qldv.api.Controller;
 
 import com.qldv.api.DTO.BookingRequest;
 import com.qldv.api.DTO.BookingResponse;
+import com.qldv.api.DTO.UpdateStatusBooking;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Service.Implement.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping(value = "/api/bookings")
 public class BookingController {
     private final BookingService _bookingService;
@@ -34,10 +35,15 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
-    @PostMapping("/book")
+    @PostMapping("/create")
     public ResponseEntity<BookingResponse> bookTicket(@RequestBody BookingRequest request) {
         BookingResponse bookedTicket = _bookingService.bookTicket(request);
         return new ResponseEntity<>(bookedTicket, HttpStatus.CREATED);
+    }
+    @PutMapping("/{id}/update-status")
+    public ResponseEntity<Booking> bookStatusBooking(@PathVariable Integer id, @RequestBody UpdateStatusBooking request) {
+        Booking booking = _bookingService.updateBookingStatus(id,request);
+        return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

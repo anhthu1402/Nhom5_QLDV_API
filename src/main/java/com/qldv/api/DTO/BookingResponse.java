@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BookingResponse {
     private Date bookingDate;
-    private Date touringDate;
+    private String touringDate;
     private Integer quantity;
     private Long totalPrice;
     private List<BookingDetailRequest> bookingDetails;
@@ -17,11 +17,11 @@ public class BookingResponse {
         this.bookingDate = bookingDate;
     }
 
-    public Date getTouringDate() {
+    public String getTouringDate() {
         return touringDate;
     }
 
-    public void setTouringDate(Date touringDate) {
+    public void setTouringDate(String touringDate) {
         this.touringDate = touringDate;
     }
 
