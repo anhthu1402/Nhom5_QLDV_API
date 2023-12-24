@@ -86,6 +86,12 @@ public class UserController {
 		    }
 	}
 	
+	//admin
+	@RequestMapping(value = "/signin2", method = RequestMethod.POST)
+	public UserDto signIn2(@RequestBody LoginForm loginForm, @RequestParam(value = "role", required = false) Integer role) {
+		return userService.signIn2(loginForm, role);
+	}
+	
 	//check password
 	@RequestMapping(value = "/check-password", method = RequestMethod.POST)
 	public boolean checkPassword(@RequestBody LoginForm loginForm) {
