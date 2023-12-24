@@ -92,17 +92,16 @@ public class StatisticService {
         LocalDate currentDate = LocalDate.now();
 
         // Create ArrayLists to store months and years separately
-        List<String> twelveMonths = new ArrayList<>();
+        List<Integer> twelveMonths = new ArrayList<>();
         List<Integer> twelveYears = new ArrayList<>();
 
         // Format for displaying the month and year
-        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMMM");
-        DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
+
 
         // Generate the 12 months starting from the current month going back
         for (int i = 0; i < 12; i++) {
             // Add the formatted month and year to their respective lists
-            twelveMonths.add(currentDate.minusMonths(i).format(monthFormatter));
+            twelveMonths.add(currentDate.minusMonths(i).getMonthValue());
             twelveYears.add(currentDate.minusMonths(i).getYear());
         }
         List<String> monthList = new ArrayList<>();
