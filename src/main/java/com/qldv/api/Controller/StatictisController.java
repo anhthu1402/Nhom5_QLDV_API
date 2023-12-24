@@ -1,10 +1,7 @@
 package com.qldv.api.Controller;
 
 
-import com.qldv.api.DTO.BookingRequest;
-import com.qldv.api.DTO.BookingResponse;
-import com.qldv.api.DTO.FastestTicket;
-import com.qldv.api.DTO.RevenueForMonth;
+import com.qldv.api.DTO.*;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Service.Implement.BookingService;
 import com.qldv.api.Service.Implement.StatisticService;
@@ -30,7 +27,7 @@ public class StatictisController {
         return new ResponseEntity<>(_statisticService.numberUsers(), HttpStatus.OK);
     }
     @GetMapping("/orders")
-    public ResponseEntity<Integer> getNumberTickets() {
+    public ResponseEntity<OrderStatistic> getNumberTickets() {
         return new ResponseEntity<>(_statisticService.numberOrders(), HttpStatus.OK);
     }
     @GetMapping("/fastest-tickets")

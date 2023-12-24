@@ -1,6 +1,7 @@
 package com.qldv.api.Service.Implement;
 
 import com.qldv.api.DTO.FastestTicket;
+import com.qldv.api.DTO.OrderStatistic;
 import com.qldv.api.DTO.RevenueForMonth;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Model.BookingDetails;
@@ -41,10 +42,18 @@ public class StatisticService {
         List<User> users = _userRepository.findAll();
         return users.size();
     }
-    public int numberOrders(){
+    public OrderStatistic numberOrders(){
         List<Booking> bookings = _bookingRepository.findAll();
-        return bookings.size();
+        int revenue = 0;
+        for(Booking booking : bookings){
+            revenue += booking.getTotalPrice();
+        }
+        OrderStatistic result = new OrderStatistic();
+        result.setRevenues(revenue);
+        result.setTotalOrders(bookings.size());
+        return result;
     }
+
     public FastestTicket getFastestTicket(){
         List<Booking> bookings = _bookingRepository.findAll();
         List<Ticket> ticketTypes = _ticketRepository.findAll();
@@ -58,10 +67,11 @@ public class StatisticService {
                 List<BookingDetails> bookingDetails = booking.getBookingDetails();
                 for(BookingDetails bookingDetail : bookingDetails){
                     if(bookingDetail.getTicket().equals(ticket)){
-                        count++;
-                        totalTickets++;
+                        count += bookingDetail.getQuantity();
+
                     }
                 }
+                totalTickets += booking.getQuantity();
             }
             if(count > maxCount) {
                 maxCount = count;
@@ -72,7 +82,8 @@ public class StatisticService {
         FastestTicket result  = new FastestTicket();
         result.setQuantity(maxCount);
         result.setType(type);
-        result.setPercents(maxCount / totalTickets * 100);
+        double percent = ((double) maxCount/ (double) totalTickets) * 100.0;
+        result.setPercents(percent);
         return result;
     }
 
@@ -111,6 +122,7 @@ public class StatisticService {
                     calendar.setTime(touringDate);
                     int month = calendar.get(Calendar.MONTH);
                     int year = calendar.get(Calendar.YEAR);
+
                     if(month == i && twelveYears.get(i) == year){
                         count += booking.getTotalPrice();
                     }
