@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/StatisticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qldv/api/Service/Implement/StatisticService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/StatisticService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/qldv/api/Service/Implement/StatisticService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
       <workItem from="1702649968177" duration="6611000" />
       <workItem from="1702730889243" duration="1316000" />
       <workItem from="1702805966946" duration="10591000" />
-      <workItem from="1703295621236" duration="30638000" />
+      <workItem from="1703295621236" duration="32743000" />
     </task>
     <servers />
   </component>
