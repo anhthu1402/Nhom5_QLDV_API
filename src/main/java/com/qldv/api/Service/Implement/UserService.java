@@ -94,6 +94,24 @@ public class UserService {
 	}
 	
 	
+	//sign in on admin
+	public UserDto signIn2(LoginForm loginForm, Integer role) {
+		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
+		if (user.isPresent()) {
+			if (user.get().getPassword().equals(loginForm.getPassword())) {
+				if(role == null) {
+					if(user.get().getRole().getId()== 1) {
+						return new UserDto(user.get());
+					}
+				}else {
+					if(user.get().getRole().getId() != 1) {
+						return new UserDto(user.get());
+					}
+				}
+			}
+		}
+		return null;
+	}
 	//check password
 	public boolean checkPassword(LoginForm loginForm) {
 		Optional<User> user = userRepository.findByEmail(loginForm.getEmail());
