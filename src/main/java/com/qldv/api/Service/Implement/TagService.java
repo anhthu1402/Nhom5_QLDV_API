@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.qldv.api.DTO.TagDto;
 import com.qldv.api.DTO.TagRateDto;
+import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.Tag;
 import com.qldv.api.Model.TagRate;
 import com.qldv.api.Repository.TagRateRepository;
@@ -30,11 +31,14 @@ public class TagService {
 	// add tagDetail
 	public TagRate createTagDetail(Integer tagId, TagRateDto tagRateDto ){
 		Tag tag = tagRepository.findById(tagId).get();
-		TagRate tagRate = new TagRate();
-		tagRate.setTag(tag);
-		tagRate.setRate(tagRateDto.getRate());
-		tagRate.setContent(tagRateDto.getContent());
-		return tagRateRepository.save(tagRate);
+		if(tag == null) {
+			TagRate tagRate = new TagRate();
+			tagRate.setTag(tag);
+			tagRate.setRate(tagRateDto.getRate());
+			tagRate.setContent(tagRateDto.getContent());
+			return tagRateRepository.save(tagRate);
+		}
+		throw new CustomValidationException("Không tồn tại tag.");
 	}
 	
 	
@@ -76,7 +80,7 @@ public class TagService {
 			t.setName(tagDetail.getName());
 			return tagRepository.save(t);
 		}
-		return tagRepository.save(tagDetail);
+		throw new CustomValidationException("Tag không tồn tại.");
 	}
 	
 	//delete tag
@@ -103,7 +107,7 @@ public class TagService {
 			t.setContent(tagRateDetail.getContent());
 			return tagRateRepository.save(t);
 		}
-		return tagRateRepository.save(tagRateDetail);
+		throw new CustomValidationException("Tag rate không tồn tại.");
 	}
 	
 }

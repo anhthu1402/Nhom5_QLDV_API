@@ -3,6 +3,8 @@ package com.qldv.api.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qldv.api.DTO.TagDto;
 import com.qldv.api.DTO.TagRateDto;
+import com.qldv.api.Exception.NotFoundException;
 import com.qldv.api.Model.Tag;
 import com.qldv.api.Model.TagRate;
 import com.qldv.api.Service.Implement.TagService;
@@ -25,13 +28,19 @@ public class TagController {
 
 	// create tag
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public Tag createTag(@RequestBody Tag tag) {
-		return tagService.createTag(tag);
+	public ResponseEntity<Tag> createTag(@RequestBody Tag tag) {
+		Tag createdTag = tagService.createTag(tag);
+        return new ResponseEntity<>(createdTag, HttpStatus.CREATED);
 	}
 	//create tag detail
 	@RequestMapping(value = "/{id}/detail", method = RequestMethod.POST)
-	public TagRate createTagDetail(@PathVariable(value = "id") Integer id, @RequestBody TagRateDto tagRateDto) {
-		return tagService.createTagDetail(id, tagRateDto);
+	public ResponseEntity<TagRate> createTagDetail(@PathVariable(value = "id") Integer id, @RequestBody TagRateDto tagRateDto) {
+		try {
+            TagRate tagDetail = tagService.createTagDetail(id, tagRateDto);
+            return new ResponseEntity<>(tagDetail, HttpStatus.CREATED);
+        } catch (Exception e) {
+        	throw new NotFoundException("Tạo tagdetail không thành công. Do không tìm thấy tag có id là: " + id);
+        } 
 	}
 	// get all tags
 	@RequestMapping(value = "",method = RequestMethod.GET)
@@ -40,8 +49,9 @@ public class TagController {
 	}
 	// get all tag rates
 	@RequestMapping(value = "/tagrates",method = RequestMethod.GET)
-	public List<TagRate> getAllTagRates(){
-		return tagService.getAllTagRates();
+	public ResponseEntity<List<TagRate>> getAllTagRates(){
+			List<TagRate> tagrates = tagService.getAllTagRates();
+		    return new ResponseEntity<>(tagrates, HttpStatus.OK);
 	}
 	// get all tag rates by tag id
 //	@RequestMapping(value = "/{id}/tagrates",method = RequestMethod.GET)
@@ -49,20 +59,31 @@ public class TagController {
 //		return tagService.getAllTagRateByTagId(id);
 //	}
 	@RequestMapping(value = "/tagdetail",method = RequestMethod.GET)
-	public List<TagDto> getAllTagDetail(){
-		return tagService.getAllTagDetail();
+	public ResponseEntity<List<TagDto>> getAllTagDetail(){
+		List<TagDto> tagdtos = tagService.getAllTagDetail();
+	    return new ResponseEntity<>(tagdtos, HttpStatus.OK);
 	}
 	
 	// get tag by id
 	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
-	public TagDto getTagById(@PathVariable(value = "id") Integer id){
-		return tagService.getTagById(id);
+	public ResponseEntity<TagDto> getTagById(@PathVariable(value = "id") Integer id){
+		TagDto tag = tagService.getTagById(id);
+		if(tag == null) {
+			 throw new NotFoundException("Không tìm thấy tag có id là: " + id);
+		}
+		return new ResponseEntity<>(tag, HttpStatus.OK);
 	}
 	
 	//update tag
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Tag updateTag(@PathVariable(value = "id") Integer id, @RequestBody Tag tagDetail) {
-		return tagService.updateTag(id, tagDetail);
+	public ResponseEntity<Tag> updateTag(@PathVariable(value = "id") Integer id, @RequestBody Tag tagDetail) {
+		try {
+			Tag tag = tagService.updateTag(id, tagDetail);
+			return new ResponseEntity<>(tag, HttpStatus.OK);
+		}catch(Exception e) {
+			throw new NotFoundException("Không tìm thấy tag có id là: " + id);
+		}
+        
 	}
 	
 	//delete tag
@@ -73,8 +94,14 @@ public class TagController {
 	
 	//update tag detail
 	@RequestMapping(value = "/tagrate/{id}", method = RequestMethod.PUT)
-	public TagRate updateTagRate(@PathVariable(value = "id") Integer id, @RequestBody TagRate tagRateDetail) {
-		return tagService.updateTagRate(id, tagRateDetail);
+	public ResponseEntity<TagRate> updateTagRate(@PathVariable(value = "id") Integer id, @RequestBody TagRate tagRateDetail) {
+		try {
+			TagRate tagRate = tagService.updateTagRate(id, tagRateDetail);
+			return new ResponseEntity<>(tagRate, HttpStatus.OK);
+		}catch(Exception e) {
+			throw new NotFoundException("Không tìm thấy tag có id là: " + id);
+		}
+        
 	}
 	
 	

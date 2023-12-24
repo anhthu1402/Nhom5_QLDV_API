@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.Role;
 import com.qldv.api.Model.User;
 import com.qldv.api.Repository.RoleRepository;
@@ -31,7 +32,7 @@ public class RoleService {
 		if(role.isPresent()) {
 			return role.get();
 		}
-		return new Role();
+		return null;
 	}
 	
 	//update role
@@ -42,7 +43,7 @@ public class RoleService {
 			r.setType(roleDetail.getType());
 			return roleRepository.save(r);
 		}
-		return roleRepository.save(roleDetail);
+		throw new CustomValidationException("Role không tồn tại.");
 	}
 	
 

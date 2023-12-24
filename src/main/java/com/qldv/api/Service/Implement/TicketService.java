@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.BookingDetails;
 import com.qldv.api.Model.Ticket;
 import com.qldv.api.Repository.TicketRepository;
@@ -30,7 +31,7 @@ public class TicketService {
 		if(ticket.isPresent()) {
 			return ticket.get();
 		}
-		return new Ticket();
+		return null;
 	}
 	//update ticket
 	public Ticket updateTicket(Integer id, Ticket ticketDetail) {
@@ -40,7 +41,7 @@ public class TicketService {
 			t.setType(ticketDetail.getType());
 			return ticketRepository.save(t);
 		}
-		return ticketRepository.save(ticketDetail);
+		throw new CustomValidationException("Vé không tồn tại.");
 	}
 	//delete ticket
 	public Boolean deleteTicket(Integer id) {
