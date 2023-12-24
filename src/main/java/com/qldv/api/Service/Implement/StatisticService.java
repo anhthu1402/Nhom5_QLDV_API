@@ -1,6 +1,5 @@
 package com.qldv.api.Service.Implement;
 
-import com.qldv.api.DTO.BookingResponse;
 import com.qldv.api.DTO.FastestTicket;
 import com.qldv.api.DTO.RevenueForMonth;
 import com.qldv.api.Model.Booking;
@@ -13,11 +12,15 @@ import com.qldv.api.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.text.DateFormatSymbols;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
+
+import java.text.SimpleDateFormat;
+
 import java.util.*;
 
 @Service
@@ -72,6 +75,7 @@ public class StatisticService {
         result.setPercents(maxCount / totalTickets * 100);
         return result;
     }
+
     public RevenueForMonth getRevenueByMonth(){
 
         LocalDate currentDate = LocalDate.now();
@@ -126,5 +130,8 @@ public class StatisticService {
         // Get the month (Note: Month index starts from 0)
 
     }
+
+    
+
 
 }

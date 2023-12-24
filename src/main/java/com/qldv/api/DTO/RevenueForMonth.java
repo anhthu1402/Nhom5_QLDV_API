@@ -5,6 +5,9 @@ import java.util.List;
 public class RevenueForMonth {
     private List<String> months;
     private List<Integer> revenues;
+    
+
+
     public void setMonths(List<String> months){
         this.months = months;
     }
@@ -15,6 +18,6 @@ public class RevenueForMonth {
         return  months;
     }
     public List<Integer> getRevenues(){
-        return  revenues;
+        return revenues;
     }
 }
