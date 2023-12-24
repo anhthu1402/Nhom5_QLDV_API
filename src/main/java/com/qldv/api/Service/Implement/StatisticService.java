@@ -14,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormatSymbols;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -42,6 +46,7 @@ public class StatisticService {
         List<Booking> bookings = _bookingRepository.findAll();
         List<Ticket> ticketTypes = _ticketRepository.findAll();
         int maxCount = 0;
+        int totalTickets = 0;
         String type = "";
         for(Ticket ticket : ticketTypes) {
             int count = 0;
@@ -51,6 +56,7 @@ public class StatisticService {
                 for(BookingDetails bookingDetail : bookingDetails){
                     if(bookingDetail.getTicket().equals(ticket)){
                         count++;
+                        totalTickets++;
                     }
                 }
             }
@@ -63,25 +69,31 @@ public class StatisticService {
         FastestTicket result  = new FastestTicket();
         result.setQuantity(maxCount);
         result.setType(type);
+        result.setPercents(maxCount / totalTickets * 100);
         return result;
     }
     public RevenueForMonth getRevenueByMonth(){
 
+        LocalDate currentDate = LocalDate.now();
 
-        // Convert the array to a list
+        // Create ArrayLists to store months and years separately
+        List<String> twelveMonths = new ArrayList<>();
+        List<Integer> twelveYears = new ArrayList<>();
+
+        // Format for displaying the month and year
+        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMMM");
+        DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
+
+        // Generate the 12 months starting from the current month going back
+        for (int i = 0; i < 12; i++) {
+            // Add the formatted month and year to their respective lists
+            twelveMonths.add(currentDate.minusMonths(i).format(monthFormatter));
+            twelveYears.add(currentDate.minusMonths(i).getYear());
+        }
         List<String> monthList = new ArrayList<>();
-        monthList.add("January");
-        monthList.add("February");
-        monthList.add("March");
-        monthList.add("April");
-        monthList.add("May");
-        monthList.add("June");
-        monthList.add("July");
-        monthList.add("August");
-        monthList.add("September");
-        monthList.add("October");
-        monthList.add("November");
-        monthList.add("December");
+        for (int i = 11; i >= 0; i--){
+            monthList.add(twelveMonths.get(i) + "/" + twelveYears.get(i) );
+        }
 
         List<Integer> revenue = new ArrayList<>();
 
@@ -94,7 +106,8 @@ public class StatisticService {
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(touringDate);
                     int month = calendar.get(Calendar.MONTH);
-                    if(month == i){
+                    int year = calendar.get(Calendar.YEAR);
+                    if(month == i && twelveYears.get(i) == year){
                         count += booking.getTotalPrice();
                     }
                 }
