@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin
+@CrossOrigin
 @RequestMapping(value = "/api/bookings")
 public class BookingController {
     private final BookingService _bookingService;
