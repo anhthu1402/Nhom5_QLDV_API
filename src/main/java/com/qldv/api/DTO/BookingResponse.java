@@ -8,6 +8,7 @@ public class BookingResponse {
     private String touringDate;
     private Integer quantity;
     private Long totalPrice;
+    private Integer userId;
     private List<BookingDetailRequest> bookingDetails;
     public Date getBookingDate() {
         return bookingDate;
@@ -46,5 +47,11 @@ public class BookingResponse {
 
     public void setBookingDetails(List<BookingDetailRequest> bookingDetails) {
         this.bookingDetails = bookingDetails;
+    }
+    public int getUserId(){
+        return userId;
+    }
+    public void setUserId(Integer userId){
+        this.userId = userId;
     }
 }

@@ -94,7 +94,7 @@ public class BookingService implements IBookingService {
             }
 
         }
-        return mapToBookingResponse(request);
+        return mapToBookingResponse(request,user);
 
 
     }
@@ -128,7 +128,7 @@ public class BookingService implements IBookingService {
         }
         throw new CustomValidationException("Booking is not found");
     }
-    private BookingResponse mapToBookingResponse(BookingRequest request){
+    private BookingResponse mapToBookingResponse(BookingRequest request, User dto){
         LocalDateTime currentDatetime = LocalDateTime.now();
         Date date  = convertToDate(currentDatetime);
         BookingResponse response = new BookingResponse();
@@ -136,6 +136,7 @@ public class BookingService implements IBookingService {
         response.setTotalPrice(request.getTotalPrice());
         response.setQuantity(request.getQuantity());
         response.setTouringDate(request.getTouringDate());
+        response.setUserId(dto.getId());
 
         response.setBookingDetails(request.getBookingDetails());
         return response;
