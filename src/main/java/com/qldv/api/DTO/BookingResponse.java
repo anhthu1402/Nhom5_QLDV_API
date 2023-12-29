@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class BookingResponse {
+    private Integer id;
     private Date bookingDate;
     private String touringDate;
     private Integer quantity;
@@ -53,5 +54,11 @@ public class BookingResponse {
     }
     public void setUserId(Integer userId){
         this.userId = userId;
+    }
+    public int getId(){
+        return id;
+    }
+    public void setId(Integer id){
+        this.id = id;
     }
 }
