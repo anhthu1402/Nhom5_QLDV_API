@@ -8,9 +8,11 @@ import com.qldv.api.Exception.CustomValidationException;
 import com.qldv.api.Model.Booking;
 import com.qldv.api.Model.BookingDetails;
 import com.qldv.api.Model.Ticket;
+import com.qldv.api.Model.User;
 import com.qldv.api.Repository.BookingDetailsRepository;
 import com.qldv.api.Repository.BookingRepository;
 import com.qldv.api.Repository.TicketRepository;
+import com.qldv.api.Repository.UserRepository;
 import com.qldv.api.Service.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
@@ -29,15 +31,18 @@ public class BookingService implements IBookingService {
     private final BookingRepository _bookingRepository;
     private final BookingDetailsRepository _bookingDetailRepository;
     private final TicketRepository _ticketRepository;
+    private final UserRepository _userRepository;
 
     @Autowired
     public BookingService(BookingRepository bookingRepository,
                           BookingDetailsRepository bookingDetailsRepository,
-                          TicketRepository ticketRepository) {
+                          TicketRepository ticketRepository,
+                          UserRepository userRepository) {
 
         _bookingRepository = bookingRepository;
         _bookingDetailRepository = bookingDetailsRepository;
         _ticketRepository = ticketRepository;
+        _userRepository = userRepository;
     }
 
     public List<Booking> getAllBookings() {
@@ -52,7 +57,7 @@ public class BookingService implements IBookingService {
         return null;
     }
 
-    public BookingResponse bookTicket(BookingRequest request) {
+    public BookingResponse bookTicket(BookingRequest request, Integer id) {
         Booking savedBooking = new Booking();
         String dateString = request.getTouringDate(); // Sample date string
         String pattern = "yyyy-MM-dd";
@@ -64,14 +69,14 @@ public class BookingService implements IBookingService {
         } catch (ParseException e) {
             System.out.println("ParseException occurred: " + e.getMessage());
         }
-
+        User user = _userRepository.findById(id).orElse(null);
 
         LocalDateTime currentDatetime = LocalDateTime.now();
         Date date  = convertToDate(currentDatetime);
         savedBooking.setBookingDate(date);
         savedBooking.setQuantity(request.getQuantity());
         savedBooking.setTotalPrice(request.getTotalPrice());
-
+        savedBooking.setUser(user);
         List<BookingDetailRequest> detailRequests = request.getBookingDetails();
         List<BookingDetails> details = new ArrayList<BookingDetails>();
         for (int i = 0; i < detailRequests.size(); i++) {

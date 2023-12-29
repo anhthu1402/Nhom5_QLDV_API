@@ -1,6 +1,7 @@
 package com.qldv.api.DTO;
 
 import com.qldv.api.Model.BookingDetails;
+import com.qldv.api.Model.User;
 
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ public class BookingRequest {
     private String touringDate;
     private int quantity;
     private long totalPrice;
+    private User userBooking;
     private List<BookingDetailRequest> bookingDetails;
 //    public Date getBookingDate() {
 //        return bookingDate;
@@ -49,5 +51,11 @@ public class BookingRequest {
 
     public void setBookingDetails(List<BookingDetailRequest> bookingDetails) {
         this.bookingDetails = bookingDetails;
+    }
+    public  User getUserBooking(){
+        return userBooking;
+    }
+    public void setUserBooking(User dto){
+        userBooking = dto;
     }
 }

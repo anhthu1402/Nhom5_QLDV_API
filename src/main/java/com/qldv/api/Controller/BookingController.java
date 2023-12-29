@@ -39,9 +39,9 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<BookingResponse> bookTicket(@RequestBody BookingRequest request) {
-        BookingResponse bookedTicket = _bookingService.bookTicket(request);
+    @PostMapping("{id}/create")
+    public ResponseEntity<BookingResponse> bookTicket(@RequestBody BookingRequest request, @PathVariable Integer id) {
+        BookingResponse bookedTicket = _bookingService.bookTicket(request, id);
         return new ResponseEntity<>(bookedTicket, HttpStatus.CREATED);
     }
     @PutMapping("/{id}/update-status")
