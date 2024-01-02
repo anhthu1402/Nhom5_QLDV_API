@@ -38,9 +38,7 @@ public class UserController {
         try {
             UserDto createdUser = userService.createUser(userDetail);
             return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-        } catch (CustomValidationException e) {
-        	throw new UnauthorizedException("Email: " + userDetail.getEmail() + " đã tồn tại trong hệ thống.");
-        } catch (Exception e) {
+        }catch (Exception e) {
         	throw new UnauthorizedException("Email: " + userDetail.getEmail() + " đã tồn tại trong hệ thống.");
         }
 //        if(createdUser == null) {
