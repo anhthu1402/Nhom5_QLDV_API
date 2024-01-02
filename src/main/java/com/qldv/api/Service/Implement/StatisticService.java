@@ -60,6 +60,9 @@ public class StatisticService {
         int maxCount = 0;
         int totalTickets = 0;
         String type = "";
+        for(Booking booking : bookings) {
+            totalTickets += booking.getQuantity();
+        }
         for(Ticket ticket : ticketTypes) {
             int count = 0;
             for(Booking booking : bookings){
@@ -71,7 +74,7 @@ public class StatisticService {
 
                     }
                 }
-                totalTickets += booking.getQuantity();
+
             }
             if(count > maxCount) {
                 maxCount = count;
@@ -116,7 +119,7 @@ public class StatisticService {
             List<Booking> bookings = _bookingRepository.findAll();
             for(Booking booking: bookings){
                 if(booking.getStatus() == 1) {
-                    Date touringDate = booking.getTouringDate();
+                    Date touringDate = booking.getBookingDate();
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(touringDate);
                     int month = calendar.get(Calendar.MONTH);

@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 public class BookingResponse {
+    private Integer id;
     private Date bookingDate;
     private String touringDate;
     private Integer quantity;
     private Long totalPrice;
+    private Integer userId;
     private List<BookingDetailRequest> bookingDetails;
     public Date getBookingDate() {
         return bookingDate;
@@ -46,5 +48,17 @@ public class BookingResponse {
 
     public void setBookingDetails(List<BookingDetailRequest> bookingDetails) {
         this.bookingDetails = bookingDetails;
+    }
+    public int getUserId(){
+        return userId;
+    }
+    public void setUserId(Integer userId){
+        this.userId = userId;
+    }
+    public int getId(){
+        return id;
+    }
+    public void setId(Integer id){
+        this.id = id;
     }
 }

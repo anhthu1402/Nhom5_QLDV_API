@@ -9,6 +9,6 @@ import java.util.List;
 public interface IBookingService {
     List<Booking> getAllBookings();
     Booking getBookingById(Integer id);
-    BookingResponse bookTicket(BookingRequest request);
+    BookingResponse bookTicket(BookingRequest request, Integer id);
     void cancelBooking(Integer id);
 }
